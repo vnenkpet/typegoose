@@ -10,9 +10,9 @@ export type Func = (...args: any[]) => any;
 
 export type RequiredType = boolean | [boolean, string] | string | Func | [Func, string];
 
-export type ValidatorFunction = (value: any) => boolean|Promise<boolean>;
+export type ValidatorFunction = (value: any) => boolean | Promise<boolean>;
 export type Validator = ValidatorFunction | RegExp | {
-    validate: ValidatorFunction,
+    validator: ValidatorFunction,
     message?: string,
 };
 
