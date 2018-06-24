@@ -258,7 +258,10 @@ email: string;
 
 // or
 
-@prop({ validate: { validator: val => isEmail(val), message: `{VALUE} must be a valid email`}})
+@prop({ validate: { 
+    validator: val => isEmail(val), 
+    message: `{VALUE} is not a valid email`
+}})
 email: string;
 
 // or
