@@ -1,11 +1,16 @@
 import { ObjectID } from 'bson';
 export declare type Func = (...args: any[]) => any;
 export declare type RequiredType = boolean | [boolean, string] | string | Func | [Func, string];
+export declare type ValidatorFunction = (value: any) => boolean | Promise<boolean>;
+export declare type Validator = ValidatorFunction | RegExp | {
+    validator: ValidatorFunction;
+    message?: string;
+};
 export interface BasePropOptions {
     required?: RequiredType;
     enum?: string[] | object;
     default?: any;
-    validate?: any;
+    validate?: Validator | Validator[];
     unique?: boolean;
     index?: boolean;
     sparse?: boolean;

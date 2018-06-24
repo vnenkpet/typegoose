@@ -268,6 +268,21 @@ email: string;
 
 @prop({ validate: /\S+@\S+\.\S+/ })
 email: string;
+
+// you can also use multiple validators in an array.
+@prop({ validate: 
+    [
+        { 
+            validator: val => isEmail(val), 
+            message: `{VALUE} is not a valid email`
+        }, 
+        {
+            validator: val => isBlacklisted(val), 
+            message: `{VALUE} is blacklisted`
+        }
+    ]
+})
+email: string;
 ```
 
 Mongoose gives developers the option to create [virtual properties](http://mongoosejs.com/docs/api.html#schema_Schema-virtual). This means that actual database read/write will not occur these are just 'calculated properties'. A virtual property can have a setter and a getter. TypeScript also has a similar feature which Typegoose uses for virtual property definitions (using the `prop` decorator).

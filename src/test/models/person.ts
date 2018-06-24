@@ -1,5 +1,6 @@
 import * as mongoose from 'mongoose';
 import * as tg from '../../typegoose';
+import * as validator from "validator";
 import { Car } from './car';
 
 // add a pre-save hook to PersistentModel
@@ -43,7 +44,7 @@ export abstract class PersistentModel extends tg.Typegoose {
 
 export class Person extends PersistentModel {
     // add new property
-    @tg.prop({ required: true })
+    @tg.prop({ required: true, validate: validator.isEmail})
     email: string;
 
     // override instanceMethod

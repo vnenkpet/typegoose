@@ -20,7 +20,7 @@ export interface BasePropOptions {
   required?: RequiredType;
   enum?: string[] | object;
   default?: any;
-  validate?: Validator;
+  validate?: Validator | Validator[];
   unique?: boolean;
   index?: boolean;
   sparse?: boolean;
